@@ -5,7 +5,7 @@ const PreAccount = ({ secret }) => {
     <div className="container">
       <input readOnly={true} value={secret} />
       <CopyToClipboard text={secret}>
-        <button> Copy to Clipboad</button>
+        <button>Copy Secret Key </button>
       </CopyToClipboard>
     </div>
   );
