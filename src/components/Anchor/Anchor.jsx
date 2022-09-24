@@ -6,7 +6,10 @@ const Anchor = async () => {
     `https://friendbot.stellar.org?addr=${encodeURIComponent(pair.publicKey())}`()
     )
   return (
-    <div>Anchor</div>
+    <div>
+      <input type="text" value={response} />
+      
+    </div>
   )
 }
 
