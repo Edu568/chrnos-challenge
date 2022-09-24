@@ -8,11 +8,11 @@ const Setup = ({ setSecret, setKey, setImport, importSecret }) => {
       const pair = StellarSdk.Keypair.random();
       const secret = pair.secret();
       const publicK = pair.publicKey();
-      //   const response = await axios(
-      //     `https://friendbot.stellar.org?addr=${encodeURIComponent(
-      //       pair.publicKey()
-      //     )}`
-      //   );
+       const response = await axios(
+         `https://friendbot.stellar.org?addr=${encodeURIComponent(
+           pair.publicKey()
+         )}`
+       );
 
       setSecret(secret);
       setKey(publicK);
@@ -21,20 +21,20 @@ const Setup = ({ setSecret, setKey, setImport, importSecret }) => {
     }
 
     const importAcc = () => {
-      //   console.log(importSecret);
-      //   if (importSecret.length === 56) {
-      //     try {
-      //       const acc = StellarSdk.KeyPair.fromSecret(importSecret);
-      //       const accPublic = acc.publicKey();
-      //       const accSecret = acc.secret();
-      //       setSecret(accSecret);
-      //       setError("");
-      //     } catch (error) {
-      //       setError("Clave invalida");
-      //     }
-      //   } else {
-      //     setError("Clave secreta invalida");
-      //   }
+         console.log(importSecret);
+         if (importSecret.length === 56) {
+           try {
+             const acc = StellarSdk.KeyPair.fromSecret(importSecret);
+             const accPublic = acc.publicKey();
+             const accSecret = acc.secret();
+             setSecret(accSecret);
+             setError("");
+           } catch (error) {
+             setError("Clave invalida");
+           }
+         } else {
+           setError("Clave secreta invalida");
+         }
     };
     return (
       <>

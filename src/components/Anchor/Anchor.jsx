@@ -1,12 +1,12 @@
 import React from 'react'
+import axios from 'axios'
 
-const Anchor = () => {
-
-  const account = 
+const Anchor = async () => {
+    const response = await axios(
+    `https://friendbot.stellar.org?addr=${encodeURIComponent(pair.publicKey())}`()
+    )
   return (
-    <div>
-
-    </div>   
+    <div>Anchor</div>
   )
 }
 
