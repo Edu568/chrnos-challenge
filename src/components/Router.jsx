@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Setup from "./Setup";
 import PreAccount from "./PreAccount";
+import Account from "./Account";
 const Router = () => {
   const [importSecret, setImport] = useState("");
   const [secret, setSecret] = useState("");
@@ -19,7 +20,16 @@ const Router = () => {
       />
     );
   } else if (!copied) {
-    return <PreAccount key={key} secret={secret} reset={reset} />;
+    return (
+      <PreAccount
+        key={key}
+        secret={secret}
+        reset={reset}
+        setCopied={setCopied}
+      />
+    );
+  } else {
+    return <Account />;
   }
 };
 

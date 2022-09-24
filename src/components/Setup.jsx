@@ -14,7 +14,7 @@ const Setup = ({ setSecret, setKey, setImport, importSecret }) => {
   const importAcc = () => {
     if (importSecret.length === 56) {
       try {
-        const acc = StellarSdk.KeyPair.fromSecret(importSecret);
+        const acc = StellarSdk.Keypair.fromSecret(importSecret.toString());
 
         const accPublic = acc.publicKey();
         const accSecret = acc.secret();
