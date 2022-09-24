@@ -5,7 +5,7 @@ import Account from "./Account";
 const Router = () => {
   const [importSecret, setImport] = useState("");
   const [secret, setSecret] = useState("");
-  const [key, setKey] = useState("");
+  const [publicKey, setKey] = useState("");
   const [copied, setCopied] = useState(false);
   const reset = () => {
     setSecret("");
@@ -20,16 +20,9 @@ const Router = () => {
       />
     );
   } else if (!copied) {
-    return (
-      <PreAccount
-        key={key}
-        secret={secret}
-        reset={reset}
-        setCopied={setCopied}
-      />
-    );
+    return <PreAccount secret={secret} reset={reset} setCopied={setCopied} />;
   } else {
-    return <Account />;
+    return <Account keyo={publicKey} />;
   }
 };
 

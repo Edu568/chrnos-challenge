@@ -19,6 +19,7 @@ const Setup = ({ setSecret, setKey, setImport, importSecret }) => {
         const accPublic = acc.publicKey();
         const accSecret = acc.secret();
         setSecret(accSecret);
+        setKey(accPublic);
         setError("");
       } catch (error) {
         setError("Clave invalida");
