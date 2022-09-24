@@ -6,7 +6,9 @@ const Router = () => {
   const [secret, setSecret] = useState("");
   const [key, setKey] = useState("");
   const [copied, setCopied] = useState(false);
-
+  const reset = () => {
+    setSecret("");
+  };
   if (!secret) {
     return (
       <Setup
@@ -17,7 +19,7 @@ const Router = () => {
       />
     );
   } else if (!copied) {
-    return <PreAccount key={key} secret={secret} />;
+    return <PreAccount key={key} secret={secret} reset={reset} />;
   }
 };
 
