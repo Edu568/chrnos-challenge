@@ -22,7 +22,7 @@ const Router = () => {
   } else if (!copied) {
     return <PreAccount secret={secret} reset={reset} setCopied={setCopied} />;
   } else {
-    return <Account keyo={publicKey} />;
+    return <Account keyo={publicKey} secret={secret} />;
   }
 };
 
