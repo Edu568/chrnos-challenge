@@ -13,13 +13,18 @@ const Setup = ({ setSecret, setKey, setImport, importSecret }) => {
 
   const importAcc = () => {
     if (importSecret.length === 56) {
-      const acc = StellarSdk.KeyPair.fromSecret(importSecret);
-      const accPublic = acc.publicKey();
-      const accSecret = acc.secret();
-      setImport(acc);
-      setError("");
+      try {
+        const acc = StellarSdk.KeyPair.fromSecret(importSecret);
+
+        const accPublic = acc.publicKey();
+        const accSecret = acc.secret();
+        setSecret(accSecret);
+        setError("");
+      } catch (error) {
+        setError("Clave invalida");
+      }
     } else {
-      setError("Error al verificar la llave secreta");
+      setError("Clave secreta invalida");
     }
   };
   return (
