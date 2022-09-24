@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import StellarSdk from "stellar-sdk";
-const Setup = ({ setSecret, setKey }) => {
-  const [importSecret, setImport] = useState("");
+const Setup = ({ setSecret, setKey, setImport, importSecret }) => {
   const [error, setError] = useState("");
-
   const createAccount = () => {
     const pair = StellarSdk.Keypair.random();
     const secret = pair.secret();
@@ -18,6 +16,7 @@ const Setup = ({ setSecret, setKey }) => {
       const acc = StellarSdk.KeyPair.fromSecret(importSecret);
       const accPublic = acc.publicKey();
       const accSecret = acc.secret();
+      setImport(acc);
       setError("");
     } else {
       setError("Error al verificar la llave secreta");
