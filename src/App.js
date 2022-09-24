@@ -1,14 +1,8 @@
-import Setup from "./components/Setup";
-import PreAccount from "./components/PreAccount";
-import { useState } from "react";
+import Router from "./components/Router";
 function App() {
-  const [importSecret, setImport] = useState("");
-  const [secret, setSecret] = useState("");
-  const [key, setKey] = useState("");
   return (
     <div className="App">
-      <Setup />
-      <PreAccount key={key} secret={secret} />
+      <Router />
     </div>
   );
 }

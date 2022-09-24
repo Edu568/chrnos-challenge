@@ -1,6 +1,10 @@
 import React from "react";
 
-const PreAccount = ({ importSecret }) => {
-  return <div>{console.log(importSecret)}</div>;
+const PreAccount = ({ secret }) => {
+  return (
+    <div>
+      <input readOnly={true} value={secret} />
+    </div>
+  );
 };
 export default PreAccount;
