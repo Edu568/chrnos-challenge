@@ -4,7 +4,7 @@ import StellarSdk from "stellar-sdk";
 const Setup = ({ setSecret, setKey, setImport, importSecret }) => {
   const [error, setError] = useState("");
   const createAccount = async () => {
-    try {
+     
       const pair = StellarSdk.Keypair.random();
       const secret = pair.secret();
       const publicK = pair.publicKey();
@@ -17,24 +17,10 @@ const Setup = ({ setSecret, setKey, setImport, importSecret }) => {
 
     setSecret(secret);
     setKey(publicK);
+  
   };
 
-  const importAcc = () => {
-    if (importSecret.length === 56) {
-      try {
-        const acc = StellarSdk.Keypair.fromSecret(importSecret.toString());
 
-        const accPublic = acc.publicKey();
-        const accSecret = acc.secret();
-        setSecret(accSecret);
-        setError("");
-      } catch (error) {
-        setError("Clave invalida");
-      }
-    } else {
-      setError("Clave secreta invalida");
-
-    }
 
     const importAcc = () => {
          console.log(importSecret);
@@ -87,6 +73,5 @@ const Setup = ({ setSecret, setKey, setImport, importSecret }) => {
       </>
     );
   };
-};
 
 export default Setup;
